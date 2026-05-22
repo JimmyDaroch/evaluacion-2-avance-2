@@ -1,0 +1,398 @@
+2026-05-22 16:46:06,439 - INFO - Decodificación exitosa con codificación: LATIN-1
+2026-05-22 16:46:06,445 - INFO - Delimitador detectado: '|'
+2026-05-22 16:46:06,445 - INFO - Delimitador detectado: ';'
+2026-05-22 16:46:06,455 - INFO - Delimitador detectado: '|'
+2026-05-22 16:46:06,455 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebridad'), Fecha index: 1 ('nacido')
+2026-05-22 16:46:06,456 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 11. Delimitador: '|'
+2026-05-22 16:46:06,459 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Pedro Pascal |1975-04-02'
+2026-05-22 16:46:06,459 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'PEDRO pascal|02-04-1975'
+2026-05-22 16:46:06,460 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'keanu  reeves|2 Sep 1964'
+2026-05-22 16:46:06,460 - WARNING - [ETL FAMOSOS] Fila 8 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Penelope Cruz|28-04-1974'
+2026-05-22 16:46:06,460 - WARNING - [ETL FAMOSOS] Fila 9 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Fila_Rota_Sin_Columnas'
+2026-05-22 16:46:06,460 - WARNING - [ETL FAMOSOS] Fila 10 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Famoso Sin Fecha|'
+2026-05-22 16:46:06,461 - WARNING - [ETL FAMOSOS] Fila 11 excluida - Fecha inválida o incomprensible ("esto-no-es-una-fecha"). Error: Formato de fecha irreconocible por dateutil y regex: 'esto-no-es-una-fecha'. Fila original: 'Famoso Con Fecha Invalida|esto-no-es-una-fecha'
+2026-05-22 16:46:06,465 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 4
+2026-05-22 16:46:06,465 - INFO - [ETL FAMOSOS] ETL completado. Originales: 11, Guardados: 4, Corruptos: 3, Duplicados: 4
+2026-05-22 16:46:06,470 - INFO - Delimitador detectado: ';'
+2026-05-22 16:46:06,471 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 2, 'lon_idx': 1, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:46:06,471 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 7. Delimitador: ';'
+2026-05-22 16:46:06,471 - WARNING - [ETL LUGARES] Fila 4 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile'
+2026-05-22 16:46:06,471 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:46:06,471 - WARNING - [GEOGRAFÍA] Fila 6 excluida - Cota física de longitud excedida: -190.0
+2026-05-22 16:46:06,476 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 4
+2026-05-22 16:46:06,476 - INFO - [ETL LUGARES] ETL completado. Originales: 7, Guardados: 4, Corruptos: 2, Duplicados: 1
+2026-05-22 16:46:28,971 - INFO - Decodificación exitosa con codificación: LATIN-1
+2026-05-22 16:46:28,977 - INFO - Delimitador detectado: '|'
+2026-05-22 16:46:28,977 - INFO - Delimitador detectado: ';'
+2026-05-22 16:46:28,990 - INFO - Delimitador detectado: '|'
+2026-05-22 16:46:28,990 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebridad'), Fecha index: 1 ('nacido')
+2026-05-22 16:46:28,990 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 14. Delimitador: '|'
+2026-05-22 16:46:28,993 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Pedro Pascal |1975-04-02'
+2026-05-22 16:46:28,993 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'PEDRO pascal|02-04-1975'
+2026-05-22 16:46:28,994 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'keanu  reeves|2 Sep 1964'
+2026-05-22 16:46:28,994 - WARNING - [ETL FAMOSOS] Fila 8 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Penelope Cruz|28-04-1974'
+2026-05-22 16:46:28,995 - WARNING - [ETL FAMOSOS] Fila 10 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|1956-07-09'
+2026-05-22 16:46:28,995 - WARNING - [ETL FAMOSOS] Fila 11 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom Hanks|09-07-1956'
+2026-05-22 16:46:28,995 - WARNING - [ETL FAMOSOS] Fila 12 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Fila_Rota_Sin_Columnas'
+2026-05-22 16:46:28,995 - WARNING - [ETL FAMOSOS] Fila 13 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Famoso Sin Fecha|'
+2026-05-22 16:46:28,995 - WARNING - [ETL FAMOSOS] Fila 14 excluida - Fecha inválida o incomprensible ("esto-no-es-una-fecha"). Error: Formato de fecha irreconocible por dateutil y regex: 'esto-no-es-una-fecha'. Fila original: 'Famoso Con Fecha Invalida|esto-no-es-una-fecha'
+2026-05-22 16:46:29,000 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 5
+2026-05-22 16:46:29,000 - INFO - [ETL FAMOSOS] ETL completado. Originales: 14, Guardados: 5, Corruptos: 3, Duplicados: 6
+2026-05-22 16:46:29,007 - INFO - Delimitador detectado: ';'
+2026-05-22 16:46:29,007 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 2, 'lon_idx': 1, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:46:29,007 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 7. Delimitador: ';'
+2026-05-22 16:46:29,007 - WARNING - [ETL LUGARES] Fila 4 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile'
+2026-05-22 16:46:29,007 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:46:29,008 - WARNING - [GEOGRAFÍA] Fila 6 excluida - Cota física de longitud excedida: -190.0
+2026-05-22 16:46:29,012 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 4
+2026-05-22 16:46:29,012 - INFO - [ETL LUGARES] ETL completado. Originales: 7, Guardados: 4, Corruptos: 2, Duplicados: 1
+2026-05-22 16:47:02,873 - INFO - Decodificación exitosa con codificación: LATIN-1
+2026-05-22 16:47:02,879 - INFO - Delimitador detectado: '|'
+2026-05-22 16:47:02,879 - INFO - Delimitador detectado: ';'
+2026-05-22 16:47:02,892 - INFO - Delimitador detectado: '|'
+2026-05-22 16:47:02,893 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebridad'), Fecha index: 1 ('nacido')
+2026-05-22 16:47:02,893 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 14. Delimitador: '|'
+2026-05-22 16:47:02,896 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Pedro Pascal |1975-04-02'
+2026-05-22 16:47:02,896 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'PEDRO pascal|02-04-1975'
+2026-05-22 16:47:02,896 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'keanu  reeves|2 Sep 1964'
+2026-05-22 16:47:02,897 - WARNING - [ETL FAMOSOS] Fila 8 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Penelope Cruz|28-04-1974'
+2026-05-22 16:47:02,897 - WARNING - [ETL FAMOSOS] Fila 10 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|1956-07-09'
+2026-05-22 16:47:02,897 - WARNING - [ETL FAMOSOS] Fila 11 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom Hanks|09-07-1956'
+2026-05-22 16:47:02,897 - WARNING - [ETL FAMOSOS] Fila 12 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Fila_Rota_Sin_Columnas'
+2026-05-22 16:47:02,897 - WARNING - [ETL FAMOSOS] Fila 13 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Famoso Sin Fecha|'
+2026-05-22 16:47:02,898 - WARNING - [ETL FAMOSOS] Fila 14 excluida - Fecha inválida o incomprensible ("esto-no-es-una-fecha"). Error: Formato de fecha irreconocible por dateutil y regex: 'esto-no-es-una-fecha'. Fila original: 'Famoso Con Fecha Invalida|esto-no-es-una-fecha'
+2026-05-22 16:47:02,903 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 5
+2026-05-22 16:47:02,904 - INFO - [ETL FAMOSOS] ETL completado. Originales: 14, Guardados: 5, Corruptos: 3, Duplicados: 6
+2026-05-22 16:47:02,912 - INFO - Delimitador detectado: ';'
+2026-05-22 16:47:02,913 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 2, 'lon_idx': 1, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:47:02,913 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 7. Delimitador: ';'
+2026-05-22 16:47:02,913 - WARNING - [ETL LUGARES] Fila 4 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile'
+2026-05-22 16:47:02,913 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:47:02,913 - WARNING - [GEOGRAFÍA] Fila 6 excluida - Cota física de longitud excedida: -190.0
+2026-05-22 16:47:02,917 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 4
+2026-05-22 16:47:02,917 - INFO - [ETL LUGARES] ETL completado. Originales: 7, Guardados: 4, Corruptos: 2, Duplicados: 1
+2026-05-22 16:47:20,030 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-22 16:47:20,030 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-22 16:47:20,031 - INFO -  * Restarting with stat
+2026-05-22 16:47:20,395 - WARNING -  * Debugger is active!
+2026-05-22 16:47:20,398 - INFO -  * Debugger PIN: 113-871-698
+2026-05-22 16:58:08,058 - INFO -  * Detected change in 'C:\\Users\\Usuario\\Desktop\\evaluacion 2 avance 2\\utils.py', reloading
+2026-05-22 16:58:20,809 - INFO - Delimitador detectado: '|'
+2026-05-22 16:58:20,810 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:58:20,810 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: '|'
+2026-05-22 16:58:20,819 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:58:20,820 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:58:20,825 - INFO - Delimitador detectado: ','
+2026-05-22 16:58:20,825 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebrity'), Fecha index: 1 ('birthdate')
+2026-05-22 16:58:20,825 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ','
+2026-05-22 16:58:20,830 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:58:20,830 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:58:20,837 - INFO - Delimitador detectado: ';'
+2026-05-22 16:58:20,838 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:58:20,838 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 16:58:20,845 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:58:20,846 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:58:20,859 - INFO - Delimitador detectado: '|'
+2026-05-22 16:58:20,860 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:58:20,860 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 5. Delimitador: '|'
+2026-05-22 16:58:20,861 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'tom hanks|09-07-1956'
+2026-05-22 16:58:20,861 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom-Hanks|09-07-1956'
+2026-05-22 16:58:20,861 - WARNING - [ETL FAMOSOS] Fila 5 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|09-07-1956'
+2026-05-22 16:58:20,861 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'TOM HANKS|09-07-1956'
+2026-05-22 16:58:20,866 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:58:20,867 - INFO - [ETL FAMOSOS] ETL completado. Originales: 5, Guardados: 1, Corruptos: 0, Duplicados: 4
+2026-05-22 16:58:20,873 - WARNING - [ETL FAMOSOS] Intento de procesar archivo vacío o sin líneas válidas.
+2026-05-22 16:58:20,879 - INFO - Decodificación exitosa con codificación: LATIN-1
+2026-05-22 16:58:20,886 - INFO - Delimitador detectado: ';'
+2026-05-22 16:58:20,886 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:58:20,886 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: ';'
+2026-05-22 16:58:20,886 - WARNING - [ETL FAMOSOS] Fila 2 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Pedro Pascal'
+2026-05-22 16:58:20,891 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:58:20,891 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 1, Corruptos: 1, Duplicados: 0
+2026-05-22 16:58:20,897 - INFO - Delimitador detectado: ';'
+2026-05-22 16:58:20,898 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:58:20,898 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 4. Delimitador: ';'
+2026-05-22 16:58:20,898 - WARNING - [GEOGRAFÍA] Fila 3 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:58:20,898 - WARNING - [GEOGRAFÍA] Fila 4 excluida - Cota física de longitud excedida: -195.0
+2026-05-22 16:58:20,898 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Latitud no numérica: no_numerico
+2026-05-22 16:58:20,905 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 16:58:20,905 - INFO - [ETL LUGARES] ETL completado. Originales: 4, Guardados: 1, Corruptos: 3, Duplicados: 0
+2026-05-22 16:59:11,474 - INFO - Delimitador detectado: '|'
+2026-05-22 16:59:11,474 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:59:11,474 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: '|'
+2026-05-22 16:59:11,482 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,482 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:59:11,487 - INFO - Delimitador detectado: ','
+2026-05-22 16:59:11,487 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebrity'), Fecha index: 1 ('birthdate')
+2026-05-22 16:59:11,487 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ','
+2026-05-22 16:59:11,492 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,492 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:59:11,500 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:11,501 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:59:11,501 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 16:59:11,509 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,509 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:59:11,514 - INFO - Delimitador detectado: '|'
+2026-05-22 16:59:11,515 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:59:11,515 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 5. Delimitador: '|'
+2026-05-22 16:59:11,516 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'tom hanks|09-07-1956'
+2026-05-22 16:59:11,516 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom-Hanks|09-07-1956'
+2026-05-22 16:59:11,516 - WARNING - [ETL FAMOSOS] Fila 5 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|09-07-1956'
+2026-05-22 16:59:11,516 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'TOM HANKS|09-07-1956'
+2026-05-22 16:59:11,528 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,529 - INFO - [ETL FAMOSOS] ETL completado. Originales: 5, Guardados: 1, Corruptos: 0, Duplicados: 4
+2026-05-22 16:59:11,541 - WARNING - [ETL FAMOSOS] Intento de procesar archivo vacío o sin líneas válidas.
+2026-05-22 16:59:11,549 - INFO - Decodificación exitosa con codificación: UTF-16
+2026-05-22 16:59:11,549 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:11,549 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:59:11,550 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 16:59:11,558 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,559 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 16:59:11,565 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:11,566 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 16:59:11,566 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: ';'
+2026-05-22 16:59:11,567 - WARNING - [ETL FAMOSOS] Fila 2 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Pedro Pascal'
+2026-05-22 16:59:11,577 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,577 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 1, Corruptos: 1, Duplicados: 0
+2026-05-22 16:59:11,583 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:11,584 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:59:11,584 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 4. Delimitador: ';'
+2026-05-22 16:59:11,584 - WARNING - [GEOGRAFÍA] Fila 3 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:59:11,584 - WARNING - [GEOGRAFÍA] Fila 4 excluida - Cota física de longitud excedida: -195.0
+2026-05-22 16:59:11,584 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Latitud no numérica: no_numerico
+2026-05-22 16:59:11,593 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 16:59:11,593 - INFO - [ETL LUGARES] ETL completado. Originales: 4, Guardados: 1, Corruptos: 3, Duplicados: 0
+2026-05-22 16:59:15,686 - INFO - Decodificación exitosa con codificación: UTF-16
+2026-05-22 16:59:15,693 - INFO - Delimitador detectado: '|'
+2026-05-22 16:59:15,693 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:15,708 - INFO - Delimitador detectado: '|'
+2026-05-22 16:59:15,709 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebridad'), Fecha index: 1 ('nacido')
+2026-05-22 16:59:15,709 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 14. Delimitador: '|'
+2026-05-22 16:59:15,711 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Pedro Pascal |1975-04-02'
+2026-05-22 16:59:15,712 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'PEDRO pascal|02-04-1975'
+2026-05-22 16:59:15,712 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'keanu  reeves|2 Sep 1964'
+2026-05-22 16:59:15,712 - WARNING - [ETL FAMOSOS] Fila 8 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Penelope Cruz|28-04-1974'
+2026-05-22 16:59:15,713 - WARNING - [ETL FAMOSOS] Fila 10 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|1956-07-09'
+2026-05-22 16:59:15,713 - WARNING - [ETL FAMOSOS] Fila 11 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom Hanks|09-07-1956'
+2026-05-22 16:59:15,713 - WARNING - [ETL FAMOSOS] Fila 12 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Fila_Rota_Sin_Columnas'
+2026-05-22 16:59:15,713 - WARNING - [ETL FAMOSOS] Fila 13 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Famoso Sin Fecha|'
+2026-05-22 16:59:15,714 - WARNING - [ETL FAMOSOS] Fila 14 excluida - Fecha inválida o incomprensible ("esto-no-es-una-fecha"). Error: Formato de fecha irreconocible por dateutil y regex: 'esto-no-es-una-fecha'. Fila original: 'Famoso Con Fecha Invalida|esto-no-es-una-fecha'
+2026-05-22 16:59:15,719 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 5
+2026-05-22 16:59:15,720 - INFO - [ETL FAMOSOS] ETL completado. Originales: 14, Guardados: 5, Corruptos: 3, Duplicados: 6
+2026-05-22 16:59:15,725 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:15,726 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 2, 'lon_idx': 1, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:59:15,726 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 7. Delimitador: ';'
+2026-05-22 16:59:15,726 - WARNING - [ETL LUGARES] Fila 4 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile'
+2026-05-22 16:59:15,726 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:59:15,726 - WARNING - [GEOGRAFÍA] Fila 6 excluida - Cota física de longitud excedida: -190.0
+2026-05-22 16:59:15,732 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 4
+2026-05-22 16:59:15,732 - INFO - [ETL LUGARES] ETL completado. Originales: 7, Guardados: 4, Corruptos: 2, Duplicados: 1
+2026-05-22 16:59:49,384 - INFO - Decodificación exitosa con codificación: LATIN-1
+2026-05-22 16:59:49,389 - INFO - Delimitador detectado: '|'
+2026-05-22 16:59:49,389 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:49,402 - INFO - Delimitador detectado: '|'
+2026-05-22 16:59:49,403 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebridad'), Fecha index: 1 ('nacido')
+2026-05-22 16:59:49,403 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 14. Delimitador: '|'
+2026-05-22 16:59:49,406 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Pedro Pascal |1975-04-02'
+2026-05-22 16:59:49,407 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'PEDRO pascal|02-04-1975'
+2026-05-22 16:59:49,408 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'keanu  reeves|2 Sep 1964'
+2026-05-22 16:59:49,409 - WARNING - [ETL FAMOSOS] Fila 8 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Penelope Cruz|28-04-1974'
+2026-05-22 16:59:49,409 - WARNING - [ETL FAMOSOS] Fila 10 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|1956-07-09'
+2026-05-22 16:59:49,410 - WARNING - [ETL FAMOSOS] Fila 11 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom Hanks|09-07-1956'
+2026-05-22 16:59:49,410 - WARNING - [ETL FAMOSOS] Fila 12 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Fila_Rota_Sin_Columnas'
+2026-05-22 16:59:49,410 - WARNING - [ETL FAMOSOS] Fila 13 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Famoso Sin Fecha|'
+2026-05-22 16:59:49,411 - WARNING - [ETL FAMOSOS] Fila 14 excluida - Fecha inválida o incomprensible ("esto-no-es-una-fecha"). Error: Formato de fecha irreconocible por dateutil y regex: 'esto-no-es-una-fecha'. Fila original: 'Famoso Con Fecha Invalida|esto-no-es-una-fecha'
+2026-05-22 16:59:49,416 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 5
+2026-05-22 16:59:49,416 - INFO - [ETL FAMOSOS] ETL completado. Originales: 14, Guardados: 5, Corruptos: 3, Duplicados: 6
+2026-05-22 16:59:49,421 - INFO - Delimitador detectado: ';'
+2026-05-22 16:59:49,422 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 2, 'lon_idx': 1, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 16:59:49,422 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 7. Delimitador: ';'
+2026-05-22 16:59:49,422 - WARNING - [ETL LUGARES] Fila 4 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile'
+2026-05-22 16:59:49,422 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 16:59:49,423 - WARNING - [GEOGRAFÍA] Fila 6 excluida - Cota física de longitud excedida: -190.0
+2026-05-22 16:59:49,429 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 4
+2026-05-22 16:59:49,429 - INFO - [ETL LUGARES] ETL completado. Originales: 7, Guardados: 4, Corruptos: 2, Duplicados: 1
+2026-05-22 17:00:27,743 - INFO - Delimitador detectado: '|'
+2026-05-22 17:00:27,744 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:27,744 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: '|'
+2026-05-22 17:00:27,755 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,755 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:27,765 - INFO - Delimitador detectado: ','
+2026-05-22 17:00:27,766 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebrity'), Fecha index: 1 ('birthdate')
+2026-05-22 17:00:27,766 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ','
+2026-05-22 17:00:27,781 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,782 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:27,794 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:27,794 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:27,794 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:00:27,801 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,801 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:27,815 - INFO - Delimitador detectado: '|'
+2026-05-22 17:00:27,815 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:27,816 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 5. Delimitador: '|'
+2026-05-22 17:00:27,817 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'tom hanks|09-07-1956'
+2026-05-22 17:00:27,817 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom-Hanks|09-07-1956'
+2026-05-22 17:00:27,818 - WARNING - [ETL FAMOSOS] Fila 5 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|09-07-1956'
+2026-05-22 17:00:27,818 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'TOM HANKS|09-07-1956'
+2026-05-22 17:00:27,826 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,826 - INFO - [ETL FAMOSOS] ETL completado. Originales: 5, Guardados: 1, Corruptos: 0, Duplicados: 4
+2026-05-22 17:00:27,832 - WARNING - [ETL FAMOSOS] Intento de procesar archivo vacío o sin líneas válidas.
+2026-05-22 17:00:27,840 - INFO - Decodificación exitosa con codificación: UTF-16
+2026-05-22 17:00:27,840 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:27,840 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:27,841 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:00:27,848 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,848 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:27,856 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:27,856 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:27,856 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: ';'
+2026-05-22 17:00:27,856 - WARNING - [ETL FAMOSOS] Fila 2 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Pedro Pascal'
+2026-05-22 17:00:27,877 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,878 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 1, Corruptos: 1, Duplicados: 0
+2026-05-22 17:00:27,899 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:27,899 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:00:27,900 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 4. Delimitador: ';'
+2026-05-22 17:00:27,900 - WARNING - [GEOGRAFÍA] Fila 3 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 17:00:27,900 - WARNING - [GEOGRAFÍA] Fila 4 excluida - Cota física de longitud excedida: -195.0
+2026-05-22 17:00:27,900 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Latitud no numérica: no_numerico
+2026-05-22 17:00:27,911 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 17:00:27,912 - INFO - [ETL LUGARES] ETL completado. Originales: 4, Guardados: 1, Corruptos: 3, Duplicados: 0
+2026-05-22 17:00:48,905 - INFO - Delimitador detectado: '|'
+2026-05-22 17:00:48,905 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:48,905 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: '|'
+2026-05-22 17:00:48,914 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,914 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:48,921 - INFO - Delimitador detectado: ','
+2026-05-22 17:00:48,921 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebrity'), Fecha index: 1 ('birthdate')
+2026-05-22 17:00:48,921 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ','
+2026-05-22 17:00:48,926 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,926 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:48,933 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:48,933 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:48,933 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:00:48,938 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,939 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:48,943 - INFO - Delimitador detectado: '|'
+2026-05-22 17:00:48,944 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:48,944 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 5. Delimitador: '|'
+2026-05-22 17:00:48,944 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'tom hanks|09-07-1956'
+2026-05-22 17:00:48,944 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom-Hanks|09-07-1956'
+2026-05-22 17:00:48,945 - WARNING - [ETL FAMOSOS] Fila 5 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|09-07-1956'
+2026-05-22 17:00:48,945 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'TOM HANKS|09-07-1956'
+2026-05-22 17:00:48,948 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,949 - INFO - [ETL FAMOSOS] ETL completado. Originales: 5, Guardados: 1, Corruptos: 0, Duplicados: 4
+2026-05-22 17:00:48,954 - WARNING - [ETL FAMOSOS] Intento de procesar archivo vacío o sin líneas válidas.
+2026-05-22 17:00:48,957 - INFO - Decodificación exitosa con codificación: UTF-16
+2026-05-22 17:00:48,958 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:48,958 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:48,958 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:00:48,963 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,963 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:00:48,968 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:48,968 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:00:48,969 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: ';'
+2026-05-22 17:00:48,969 - WARNING - [ETL FAMOSOS] Fila 2 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Pedro Pascal'
+2026-05-22 17:00:48,975 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,975 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 1, Corruptos: 1, Duplicados: 0
+2026-05-22 17:00:48,980 - INFO - Delimitador detectado: ';'
+2026-05-22 17:00:48,980 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:00:48,980 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 4. Delimitador: ';'
+2026-05-22 17:00:48,980 - WARNING - [GEOGRAFÍA] Fila 3 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 17:00:48,980 - WARNING - [GEOGRAFÍA] Fila 4 excluida - Cota física de longitud excedida: -195.0
+2026-05-22 17:00:48,980 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Latitud no numérica: no_numerico
+2026-05-22 17:00:48,986 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 17:00:48,986 - INFO - [ETL LUGARES] ETL completado. Originales: 4, Guardados: 1, Corruptos: 3, Duplicados: 0
+2026-05-22 17:01:09,751 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-22 17:01:09,752 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-22 17:01:09,753 - INFO -  * Restarting with stat
+2026-05-22 17:01:10,267 - WARNING -  * Debugger is active!
+2026-05-22 17:01:10,272 - INFO -  * Debugger PIN: 113-871-698
+2026-05-22 17:08:33,020 - INFO -  * Detected change in 'C:\\Users\\Usuario\\Desktop\\evaluacion 2 avance 2\\tests\\surprise_tests.py', reloading
+2026-05-22 17:09:27,433 - INFO - Delimitador detectado: '|'
+2026-05-22 17:09:27,434 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:09:27,434 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: '|'
+2026-05-22 17:09:27,444 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 2
+2026-05-22 17:09:27,444 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 2, Corruptos: 0, Duplicados: 0
+2026-05-22 17:09:27,450 - INFO - Delimitador detectado: ','
+2026-05-22 17:09:27,451 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebrity'), Fecha index: 1 ('birthdate')
+2026-05-22 17:09:27,451 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: ','
+2026-05-22 17:09:27,456 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 2
+2026-05-22 17:09:27,456 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 2, Corruptos: 0, Duplicados: 0
+2026-05-22 17:09:27,461 - INFO - Delimitador detectado: ';'
+2026-05-22 17:09:27,461 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:09:27,461 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: ';'
+2026-05-22 17:09:27,461 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Angelina Jolie;;;;1975-06-04'
+2026-05-22 17:09:27,466 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:09:27,466 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 1, Corruptos: 1, Duplicados: 0
+2026-05-22 17:09:27,473 - INFO - Delimitador detectado: '|'
+2026-05-22 17:09:27,473 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:09:27,474 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 5. Delimitador: '|'
+2026-05-22 17:09:27,474 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'tom hanks|09-07-1956'
+2026-05-22 17:09:27,474 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'TOM HANKS|09-07-1956'
+2026-05-22 17:09:27,475 - WARNING - [ETL FAMOSOS] Fila 5 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom-Hanks|09-07-1956'
+2026-05-22 17:09:27,475 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|09-07-1956'
+2026-05-22 17:09:27,481 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:09:27,481 - INFO - [ETL FAMOSOS] ETL completado. Originales: 5, Guardados: 1, Corruptos: 0, Duplicados: 4
+2026-05-22 17:09:27,485 - INFO - Delimitador detectado: '|'
+2026-05-22 17:09:27,485 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:09:27,486 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 2. Delimitador: '|'
+2026-05-22 17:09:27,486 - WARNING - [ETL FAMOSOS] Fila 2 excluida - Fecha inválida o incomprensible ("31/02/1956"). Error: Formato de fecha irreconocible por dateutil y regex: '31/02/1956'. Fila original: 'Tom Hanks|31/02/1956'
+2026-05-22 17:09:27,486 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Fecha inválida o incomprensible ("99-99-9999"). Error: Formato de fecha irreconocible por dateutil y regex: '99-99-9999'. Fila original: 'Angelina Jolie|99-99-9999'
+2026-05-22 17:09:27,490 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 0
+2026-05-22 17:09:27,491 - INFO - [ETL FAMOSOS] ETL completado. Originales: 2, Guardados: 0, Corruptos: 2, Duplicados: 0
+2026-05-22 17:09:27,495 - WARNING - [ETL FAMOSOS] Intento de procesar archivo vacío o sin líneas válidas.
+2026-05-22 17:09:27,500 - INFO - Decodificación exitosa con codificación: UTF-16
+2026-05-22 17:09:27,500 - INFO - Delimitador detectado: ';'
+2026-05-22 17:09:27,500 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('nombre'), Fecha index: 1 ('fecha')
+2026-05-22 17:09:27,500 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:09:27,505 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 1
+2026-05-22 17:09:27,506 - INFO - [ETL FAMOSOS] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:09:27,511 - INFO - Delimitador detectado: ';'
+2026-05-22 17:09:27,512 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:09:27,512 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:09:27,523 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 17:09:27,523 - INFO - [ETL LUGARES] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:09:27,530 - INFO - Delimitador detectado: ';'
+2026-05-22 17:09:27,530 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:09:27,530 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 2. Delimitador: ';'
+2026-05-22 17:09:27,530 - WARNING - [ETL LUGARES] Fila 3 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Mall Plaza;-36.82;-73.04;Barros Arana;123;Concepcion;Chile'
+2026-05-22 17:09:27,535 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 17:09:27,535 - INFO - [ETL LUGARES] ETL completado. Originales: 2, Guardados: 1, Corruptos: 0, Duplicados: 1
+2026-05-22 17:09:27,541 - INFO - Delimitador detectado: ';'
+2026-05-22 17:09:27,542 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:09:27,542 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 1. Delimitador: ';'
+2026-05-22 17:09:27,542 - WARNING - [GEOGRAFÍA] Fila 2 excluida - Cota física de latitud excedida: 999
+2026-05-22 17:09:27,544 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 0
+2026-05-22 17:09:27,544 - INFO - [ETL LUGARES] ETL completado. Originales: 1, Guardados: 0, Corruptos: 1, Duplicados: 0
+2026-05-22 17:09:27,549 - INFO - Delimitador detectado: ','
+2026-05-22 17:09:27,549 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 1, 'lon_idx': 2, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:09:27,550 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 1. Delimitador: ','
+2026-05-22 17:09:27,554 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 1
+2026-05-22 17:09:27,555 - INFO - [ETL LUGARES] ETL completado. Originales: 1, Guardados: 1, Corruptos: 0, Duplicados: 0
+2026-05-22 17:10:01,439 - INFO - Decodificación exitosa con codificación: LATIN-1
+2026-05-22 17:10:01,444 - INFO - Delimitador detectado: '|'
+2026-05-22 17:10:01,445 - INFO - Delimitador detectado: ';'
+2026-05-22 17:10:01,456 - INFO - Delimitador detectado: '|'
+2026-05-22 17:10:01,456 - INFO - [ETL FAMOSOS] Auto-detección de columnas completada - Nombre index: 0 ('celebridad'), Fecha index: 1 ('nacido')
+2026-05-22 17:10:01,456 - INFO - [ETL FAMOSOS] Iniciando procesamiento de Famosos. Total filas a procesar: 14. Delimitador: '|'
+2026-05-22 17:10:01,460 - WARNING - [ETL FAMOSOS] Fila 3 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Pedro Pascal |1975-04-02'
+2026-05-22 17:10:01,460 - WARNING - [ETL FAMOSOS] Fila 4 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'PEDRO pascal|02-04-1975'
+2026-05-22 17:10:01,460 - WARNING - [ETL FAMOSOS] Fila 6 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'keanu  reeves|2 Sep 1964'
+2026-05-22 17:10:01,461 - WARNING - [ETL FAMOSOS] Fila 8 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Penelope Cruz|28-04-1974'
+2026-05-22 17:10:01,461 - WARNING - [ETL FAMOSOS] Fila 10 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom_Hanks|1956-07-09'
+2026-05-22 17:10:01,461 - WARNING - [ETL FAMOSOS] Fila 11 excluida - Duplicidad lógica exacta (Nombres idénticos tras fuzzy trim y misma fecha de nacimiento). Fila original: 'Tom Hanks|09-07-1956'
+2026-05-22 17:10:01,461 - WARNING - [ETL FAMOSOS] Fila 12 excluida - Estructura incompleta. Fila contiene 1 columnas, pero requiere índice 2. Fila original: 'Fila_Rota_Sin_Columnas'
+2026-05-22 17:10:01,462 - WARNING - [ETL FAMOSOS] Fila 13 excluida - Fecha inválida o incomprensible (""). Error: Fecha nula o vacía. Fila original: 'Famoso Sin Fecha|'
+2026-05-22 17:10:01,462 - WARNING - [ETL FAMOSOS] Fila 14 excluida - Fecha inválida o incomprensible ("esto-no-es-una-fecha"). Error: Formato de fecha irreconocible por dateutil y regex: 'esto-no-es-una-fecha'. Fila original: 'Famoso Con Fecha Invalida|esto-no-es-una-fecha'
+2026-05-22 17:10:01,467 - INFO - [ETL FAMOSOS] Datos persistidos exitosamente en SQLite. Registros guardados: 5
+2026-05-22 17:10:01,468 - INFO - [ETL FAMOSOS] ETL completado. Originales: 14, Guardados: 5, Corruptos: 3, Duplicados: 6
+2026-05-22 17:10:01,474 - INFO - Delimitador detectado: ';'
+2026-05-22 17:10:01,474 - INFO - [ETL LUGARES] Auto-detección de columnas completada: {'lugar_idx': 0, 'lat_idx': 2, 'lon_idx': 1, 'calle_idx': 3, 'numero_idx': 4, 'ciudad_idx': 5, 'pais_idx': 6}
+2026-05-22 17:10:01,475 - INFO - [ETL LUGARES] Iniciando procesamiento de Lugares. Total filas a procesar: 7. Delimitador: ';'
+2026-05-22 17:10:01,475 - WARNING - [ETL LUGARES] Fila 4 excluida - Duplicidad relacional (Mismo nombre de establecimiento y misma dirección física). Fila original: 'Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile'
+2026-05-22 17:10:01,475 - WARNING - [GEOGRAFÍA] Fila 5 excluida - Cota física de latitud excedida: 95.0
+2026-05-22 17:10:01,475 - WARNING - [GEOGRAFÍA] Fila 6 excluida - Cota física de longitud excedida: -190.0
+2026-05-22 17:10:01,480 - INFO - [ETL LUGARES] Inserción relacional completa (3FN) en SQLite. Registros guardados: 4
+2026-05-22 17:10:01,481 - INFO - [ETL LUGARES] ETL completado. Originales: 7, Guardados: 4, Corruptos: 2, Duplicados: 1

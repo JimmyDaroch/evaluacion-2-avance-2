@@ -1,0 +1,8 @@
+place;coord_y;coord_x;street;altura;provincia;country
+Torre Entel;-70.6536;-33.4444;Amunátegui;20;Santiago;Chile
+Costanera Center;-70.6061;-33.4189;Avenida Andrés Bello;2425;Providencia;Chile
+Torre Entel  ;-70.6536;-33.4444;Amunategui;20;Santiago;Chile
+Lugar Latitud Excedida;-70.6500;95.0;Calle Falsa;123;Santiago;Chile
+Lugar Longitud Excedida;-190.0;-33.4400;Calle Falsa;456;Santiago;Chile
+Lugar Sin Nombre;;-33.4400;Calle Falsa;789;Santiago;Chile
+La Moneda;-70.6538;-33.4429;Moneda;s/n;Santiago;Chile

@@ -1,0 +1,11 @@
+Famoso_Nombre|Fecha_Nacimiento_Inconsistente
+Pedro Pascal|1975-04-02
+Keanu @Reeves#|02/09/1964
+Shakira Mebarak|02-02-1977
+Daniel Muñoz|22-05-1966
+Alexis Sánchez*|Nacido el 19 de diciembre de 1988 en Tocopilla
+Cecilia Bolocco;|1965/05/19
+Pedro Pascal|1975-04-02
+Keanu Reeves|02-09-1964
+Fila Corrupta Sin Fecha
+Famoso Fantasma|fecha_invalida_total_123

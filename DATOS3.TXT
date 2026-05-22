@@ -1,0 +1,9 @@
+Lugar_Nombre;Latitud;Longitud;Calle_Nombre;Numero;Ciudad_Comuna;Pais
+Parque O'Higgins;-33.456;-70.648;Avenida Beauchef;399;Santiago;Chile
+Torre Entel#;-33.444;-70.653;Amunátegui;20;Santiago;Chile
+Teatro Municipal;-33.441;-70.647;Agustinas;794;Santiago;Chile
+Teatro Municipal;-33.441;-70.647;Agustinas;794;Santiago;Chile
+;33.441;-70.647;Agustinas;794;Santiago;Chile
+Lugar Erratico;125.40;-70.647;Agustinas;794;Santiago;Chile
+Valparaíso Port;-33.037;-71.624;Avenida Errázuriz;1200;Valparaíso;Chile
+La Moneda Palace;-33.443;-70.653;Moneda;S/N;Santiago;Chile

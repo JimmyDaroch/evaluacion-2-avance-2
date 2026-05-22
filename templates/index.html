@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETL & Normalización de Datasets | Arquitectura de Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo-icon">E</div>
+                <div class="logo-text">
+                    <h1>ETL Engine</h1>
+                    <span>NORMALIZADOR 3FN</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" onclick="switchTab('dashboard')">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                    Dashboard
+                </button>
+                <button class="nav-item" onclick="switchTab('etl-famosos')">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    ETL Famosos / Fechas
+                </button>
+                <button class="nav-item" onclick="switchTab('etl-lugares')">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    ETL Normalizar Lugares
+                </button>
+                <button class="nav-item" onclick="switchTab('db-explorer')">
+                    <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+                    Explorador de DB
+                </button>
+                <button class="nav-item" onclick="switchTab('etl-logs')">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Logs ETL
+                </button>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <p>Evaluación Arquitectura de Datos</p>
+                <p style="margin-top: 4px; opacity: 0.6;">© 2026 - Universidad</p>
+            </div>
+        </aside>
+        
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- HEADER BAR -->
+            <div class="header-title-bar">
+                <div class="welcome-section">
+                    <h2 id="main-view-title">Dashboard General</h2>
+                    <p id="main-view-subtitle">Resumen estadístico y control de la base de datos relacional.</p>
+                </div>
+                
+                <div class="status-badge">
+                    <div class="status-indicator"></div>
+                    <span>SQLite: <strong>Activa</strong></span>
+                </div>
+            </div>
+            
+            <!-- VISTA: DASHBOARD -->
+            <div id="view-dashboard" class="tab-pane active">
+                
+                <!-- Estadísticas de SQLite -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-famosos">{{ stats.total_famosos }}</span>
+                            <span class="stat-label">Famosos Guardados</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon cumple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-cumpleanos">{{ stats.cumpleañeros }}</span>
+                            <span class="stat-label">Cumpleaños Hoy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon lugar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-lugares">{{ stats.total_lugares }}</span>
+                            <span class="stat-label">Lugares Normalizados</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon lugar" style="background: rgba(245, 158, 11, 0.15); color: var(--color-warning);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-direcciones">{{ stats.total_direcciones }}</span>
+                            <span class="stat-label">Direcciones (3FN)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta de bienvenida y arquitectura académica -->
+                <div class="glass-card">
+                    <h3 class="card-title">🔬 Fundamento Teórico y Académico del ETL</h3>
+                    <p style="margin-bottom: 16px; color: var(--text-secondary);">
+                        Este software ha sido diseñado como un motor de procesamiento de datos flexible para evaluaciones de <strong>Arquitectura de Datos</strong>. Implementa las tres fases fundamentales del proceso de integración de datos de forma dinámica y no-hardcodeada:
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 24px;">
+                        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
+                            <h4 style="color: var(--color-primary); margin-bottom: 8px;">1. Extracción (Extract)</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                                Detección delimitada dinámica en archivos TXT/CSV. Lee flujos de texto crudos, identifica codificaciones y segmenta filas automáticamente, soportando cualquier conjunto de columnas.
+                            </p>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
+                            <h4 style="color: var(--color-secondary); margin-bottom: 8px;">2. Transformación (Transform)</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                                Limpieza de caracteres textuales basura (<code>@#;:|\/*</code>). Normalización ortográfica y de formatos de fecha mixtos a estándar chileno (<code>DD-MM-YYYY</code>). Detección probabilística de duplicados con cálculo de Levenshtein.
+                            </p>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
+                            <h4 style="color: var(--color-success); margin-bottom: 8px;">3. Carga (Load)</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                                Inserción atómica en base de datos. Para Lugares, realiza una partición relacional en <strong>Tercera Forma Normal (3FN)</strong>, rompiendo la tabla plana original en 3 subtablas enlazadas por IDs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Acciones Académicas de Control -->
+                <div class="glass-card">
+                    <h3 class="card-title" style="color: var(--color-warning);">⚠️ Zona de Control y Pruebas Académicas</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-secondary);">
+                        Si desea limpiar la base de datos completa para simular un proceso desde cero y realizar nuevas cargas con archivos del profesor, puede resetear todas las tablas de forma segura aquí.
+                    </p>
+                    <div style="display: flex; gap: 16px;">
+                        <button class="btn btn-danger" onclick="clearDatabase()">🗑️ Vaciar Base de Datos Completa</button>
+                        <a href="/api/download/sql" class="btn btn-secondary">📥 Descargar Script SQL Inicial</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- VISTA: ETL FAMOSOS (PARTE 1) -->
+            <div id="view-etl-famosos" class="tab-pane">
+                <div class="glass-card">
+                    <h3 class="card-title">👤 Cargar y Procesar Dataset de Famosos</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Sube un archivo de texto o CSV. El sistema detectará automáticamente los separadores, limpiará los nombres, estandarizará las fechas complejas al formato <strong>DD-MM-YYYY</strong>, calculará edades y flag de cumpleaños, y evitará duplicados por similitud de strings.
+                    </p>
+                    
+                    <!-- Drag & Drop Zone -->
+                    <div class="drop-zone" id="drop-zone-famosos" onclick="triggerFileInput('file-famosos')">
+                        <div class="drop-zone-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        </div>
+                        <div class="drop-zone-text">Arrastra tu archivo aquí o haz clic para buscar</div>
+                        <div class="drop-zone-subtext">Formatos permitidos: TXT, CSV (Tamaño máximo: 16MB)</div>
+                        <input type="file" id="file-famosos" style="display: none;" accept=".txt,.csv" onchange="handleFileSelect(this, 'famosos')">
+                    </div>
+                    
+                    <!-- Mapeador Dinámico (Oculto inicialmente) -->
+                    <div class="mapper-box" id="mapper-famosos" style="display: none;">
+                        <h4 style="margin-bottom: 16px; font-family: var(--font-title);">⚙️ Configuración Dinámica de Estructura</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;" id="mapper-info-famosos"></p>
+                        
+                        <div class="mapper-grid">
+                            <div class="mapper-field">
+                                <label class="mapper-label">Columna de Nombre del Famoso</label>
+                                <select class="select-control" id="map-famosos-nombre"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">Columna de Fecha de Nacimiento</label>
+                                <select class="select-control" id="map-famosos-fecha"></select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="runETLPipeline('famosos')">🚀 Iniciar Pipeline ETL Famosos</button>
+                    </div>
+                </div>
+                
+                <!-- Reportes y Resultados del ETL (Oculto inicialmente) -->
+                <div id="results-famosos" class="fade-in" style="display: none;">
+                    
+                    <!-- Consola de Auditoría -->
+                    <div class="glass-card animate-slide-up" id="audit-card-famosos" style="display: none; border: 1px solid rgba(16, 185, 129, 0.25); background: rgba(4, 7, 17, 0.7);">
+                        <h3 class="card-title" style="display: flex; align-items: center; gap: 8px; color: #10b981;">
+                            <span style="display:inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                            🖥️ Consola de Auditoría del Proceso ETL
+                        </h3>
+                        <pre class="code-preview" id="audit-log-terminal-famosos" style="color: #34d399; background: #02040a; font-family: 'Courier New', Courier, monospace; max-height: 250px; overflow-y: auto; padding: 15px; border-radius: 6px; font-size: 0.85rem; line-height: 1.4; border: 1px solid rgba(16, 185, 129, 0.15); margin-top: 10px;"></pre>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">📊 Dashboard de Resultados del ETL</h3>
+                        
+                        <!-- KPIs del Proceso -->
+                        <div class="kpi-container">
+                            <div class="kpi-box total">
+                                <div class="kpi-num" id="kpi-fam-total">0</div>
+                                <div class="kpi-label">Registros Leídos</div>
+                            </div>
+                            <div class="kpi-box success">
+                                <div class="kpi-num" id="kpi-fam-clean">0</div>
+                                <div class="kpi-label">Cargados en DB</div>
+                            </div>
+                            <div class="kpi-box warning">
+                                <div class="kpi-num" id="kpi-fam-dup">0</div>
+                                <div class="kpi-label">Duplicados Omitidos</div>
+                            </div>
+                            <div class="kpi-box danger">
+                                <div class="kpi-num" id="kpi-fam-corr">0</div>
+                                <div class="kpi-label">Registros Corruptos</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pestañas de tablas resultantes -->
+                        <div class="results-tabs">
+                            <button class="tab-btn active" onclick="switchResultTab('fam', 'clean')">🟢 Registros Limpios e Insertados</button>
+                            <button class="tab-btn" onclick="switchResultTab('fam', 'duplicates')">🟡 Duplicados Detectados</button>
+                            <button class="tab-btn" onclick="switchResultTab('fam', 'corrupt')">🔴 Registros Corruptos / Eliminados</button>
+                            <button class="tab-btn" onclick="switchResultTab('fam', 'sql')">⚡ SQL Schema Preview</button>
+                        </div>
+                        
+                        <!-- Contenido Pestaña: Limpios -->
+                        <div id="tab-fam-clean" class="tab-pane active">
+                            <div class="explorer-controls">
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Registros procesados y cargados físicamente en la tabla <strong>Famosos</strong>:</p>
+                                <button class="btn btn-secondary btn-sm" onclick="downloadCleanCSV('famosos')">📥 Descargar CSV Limpio</button>
+                            </div>
+                            <div class="table-container">
+                                <table class="data-table" id="table-fam-clean">
+                                    <thead>
+                                        <tr>
+                                            <th>ID/Fila</th>
+                                            <th>Nombre Limpio</th>
+                                            <th>Fecha Normalizada</th>
+                                            <th>Edad Calculada</th>
+                                            <th>Cumpleaños Flag</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenido Pestaña: Duplicados -->
+                        <div id="tab-fam-duplicates" class="tab-pane">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">
+                                Registros omitidos al detectar duplicidad exacta o coincidencia ortográfica parcial con un registro ya insertado:
+                            </p>
+                            <div class="table-container">
+                                <table class="data-table" id="table-fam-duplicates">
+                                    <thead>
+                                        <tr>
+                                            <th>Fila</th>
+                                            <th>Registro Omitido</th>
+                                            <th>Cruce de Fecha</th>
+                                            <th>Coincidencia / Razón</th>
+                                            <th>Registro Conservado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenido Pestaña: Corruptos -->
+                        <div id="tab-fam-corrupt" class="tab-pane">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">
+                                Registros omitidos y catalogados como inválidos debido a fallas estructurales o de fecha no parseable:
+                            </p>
+                            <div class="table-container">
+                                <table class="data-table" id="table-fam-corrupt">
+                                    <thead>
+                                        <tr>
+                                            <th>Línea</th>
+                                            <th>Cadena de Datos Original</th>
+                                            <th>Motivo de Rechazo Académico</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenido Pestaña: SQL -->
+                        <div id="tab-fam-sql" class="tab-pane">
+                            <div class="explorer-controls">
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Sentencias SQL relacionales generadas en caliente para reconstruir este dataset:</p>
+                                <a href="/api/download/sql" class="btn btn-secondary btn-sm">📥 Descargar Script SQL Completo</a>
+                            </div>
+                            <pre class="code-preview" id="sql-fam-preview"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VISTA: ETL LUGARES (PARTE 2) -->
+            <div id="view-etl-lugares" class="tab-pane">
+                <div class="glass-card">
+                    <h3 class="card-title">📍 Cargar y Normalizar Dataset de Lugares (3FN)</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Sube un archivo de lugares. El sistema analizará la estructura tridimensional, limpiará inconsistencias y dividirá automáticamente toda la información plana en <strong>3 tablas normalizadas en 3FN</strong> (Lugares, Georeferencias y Direcciones), guardando las relaciones referenciales.
+                    </p>
+                    
+                    <!-- Drag & Drop Zone -->
+                    <div class="drop-zone" id="drop-zone-lugares" onclick="triggerFileInput('file-lugares')">
+                        <div class="drop-zone-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        </div>
+                        <div class="drop-zone-text">Arrastra tu archivo aquí o haz clic para buscar</div>
+                        <div class="drop-zone-subtext">Formatos permitidos: TXT, CSV (Tamaño máximo: 16MB)</div>
+                        <input type="file" id="file-lugares" style="display: none;" accept=".txt,.csv" onchange="handleFileSelect(this, 'lugares')">
+                    </div>
+                    
+                    <!-- Mapeador Dinámico (Oculto inicialmente) -->
+                    <div class="mapper-box" id="mapper-lugares" style="display: none;">
+                        <h4 style="margin-bottom: 16px; font-family: var(--font-title);">⚙️ Configuración Dinámica de Estructura de Lugares</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;" id="mapper-info-lugares"></p>
+                        
+                        <div class="mapper-grid">
+                            <div class="mapper-field">
+                                <label class="mapper-label">Nombre del Lugar *</label>
+                                <select class="select-control" id="map-lugares-nombre"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">Latitud</label>
+                                <select class="select-control" id="map-lugares-lat"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">Longitud</label>
+                                <select class="select-control" id="map-lugares-lon"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">Calle / Dirección</label>
+                                <select class="select-control" id="map-lugares-calle"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">Número de Calle</label>
+                                <select class="select-control" id="map-lugares-numero"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">Ciudad / Provincia / Estado</label>
+                                <select class="select-control" id="map-lugares-ciudad"></select>
+                            </div>
+                            <div class="mapper-field">
+                                <label class="mapper-label">País</label>
+                                <select class="select-control" id="map-lugares-pais"></select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="runETLPipeline('lugares')">🚀 Iniciar Pipeline ETL Lugares (3FN)</button>
+                    </div>
+                </div>
+                
+                <!-- Reportes y Resultados del ETL (Oculto inicialmente) -->
+                <div id="results-lugares" class="fade-in" style="display: none;">
+                    
+                    <!-- Consola de Auditoría -->
+                    <div class="glass-card animate-slide-up" id="audit-card-lugares" style="display: none; border: 1px solid rgba(16, 185, 129, 0.25); background: rgba(4, 7, 17, 0.7);">
+                        <h3 class="card-title" style="display: flex; align-items: center; gap: 8px; color: #10b981;">
+                            <span style="display:inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                            🖥️ Consola de Auditoría del Proceso ETL (3FN)
+                        </h3>
+                        <pre class="code-preview" id="audit-log-terminal-lugares" style="color: #34d399; background: #02040a; font-family: 'Courier New', Courier, monospace; max-height: 250px; overflow-y: auto; padding: 15px; border-radius: 6px; font-size: 0.85rem; line-height: 1.4; border: 1px solid rgba(16, 185, 129, 0.15); margin-top: 10px;"></pre>
+                    </div>
+
+                    <!-- Diagrama Visual de la Normalización en 3FN -->
+                    <div class="glass-card">
+                        <h3 class="card-title">📐 Diagrama Relacional de Normalización (Tercera Forma Normal - 3FN)</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.9rem;">
+                            El pipeline ETL ha descompuesto la estructura plana del dataset original y distribuido los campos en 3 tablas bien definidas para eliminar redundancias transaccionales y anomalías de actualización:
+                        </p>
+                        
+                        <div class="db-visual-schema">
+                            <!-- Tabla 1: Lugares -->
+                            <div class="schema-table-card">
+                                <div class="schema-table-header" style="border-top: 3px solid var(--color-primary);">
+                                    <span>🏢 Lugares (Entidad)</span>
+                                    <span style="opacity: 0.6; font-size: 0.75rem;">1</span>
+                                </div>
+                                <div class="schema-table-fields">
+                                    <div class="schema-field-row"><span class="schema-field-name pk">id</span><span class="schema-field-type">INTEGER</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">nombre_lugar</span><span class="schema-field-type">TEXT (UNIQUE)</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tabla 2: Georeferencias -->
+                            <div class="schema-table-card">
+                                <div class="schema-table-header" style="border-top: 3px solid var(--color-secondary);">
+                                    <span>🌐 Georeferencias</span>
+                                    <span style="opacity: 0.6; font-size: 0.75rem;">1:1</span>
+                                </div>
+                                <div class="schema-table-fields">
+                                    <div class="schema-field-row"><span class="schema-field-name pk">id</span><span class="schema-field-type">INTEGER</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name fk">lugar_id</span><span class="schema-field-type">INTEGER</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">latitud</span><span class="schema-field-type">REAL</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">longitud</span><span class="schema-field-type">REAL</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tabla 3: Direcciones -->
+                            <div class="schema-table-card">
+                                <div class="schema-table-header" style="border-top: 3px solid var(--color-success);">
+                                    <span>📮 Direcciones</span>
+                                    <span style="opacity: 0.6; font-size: 0.75rem;">1:N</span>
+                                </div>
+                                <div class="schema-table-fields">
+                                    <div class="schema-field-row"><span class="schema-field-name pk">id</span><span class="schema-field-type">INTEGER</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name fk">lugar_id</span><span class="schema-field-type">INTEGER</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">nombre_calle</span><span class="schema-field-type">TEXT</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">numero_calle</span><span class="schema-field-type">TEXT</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">ciudad_estado_provincia</span><span class="schema-field-type">TEXT</span></div>
+                                    <div class="schema-field-row"><span class="schema-field-name">pais</span><span class="schema-field-type">TEXT</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">📊 Dashboard de Resultados del ETL Lugares</h3>
+                        
+                        <!-- KPIs -->
+                        <div class="kpi-container">
+                            <div class="kpi-box total">
+                                <div class="kpi-num" id="kpi-lug-total">0</div>
+                                <div class="kpi-label">Registros Leídos</div>
+                            </div>
+                            <div class="kpi-box success">
+                                <div class="kpi-num" id="kpi-lug-clean">0</div>
+                                <div class="kpi-label">Lugares Normalizados</div>
+                            </div>
+                            <div class="kpi-box warning">
+                                <div class="kpi-num" id="kpi-lug-dup">0</div>
+                                <div class="kpi-label">Duplicados Omitidos</div>
+                            </div>
+                            <div class="kpi-box danger">
+                                <div class="kpi-num" id="kpi-lug-corr">0</div>
+                                <div class="kpi-label">Registros Corruptos</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tabs -->
+                        <div class="results-tabs">
+                            <button class="tab-btn active" onclick="switchResultTab('lug', 'clean')">🟢 Vista Previa Normalizada</button>
+                            <button class="tab-btn" onclick="switchResultTab('lug', 'duplicates')">🟡 Duplicados Detectados</button>
+                            <button class="tab-btn" onclick="switchResultTab('lug', 'corrupt')">🔴 Registros Corruptos / Eliminados</button>
+                            <button class="tab-btn" onclick="switchResultTab('lug', 'sql')">⚡ SQL Schema Preview</button>
+                        </div>
+                        
+                        <!-- Clean records places -->
+                        <div id="tab-lug-clean" class="tab-pane active">
+                            <div class="explorer-controls">
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Muestra integrada de los datos listos para almacenamiento relacional:</p>
+                                <button class="btn btn-secondary btn-sm" onclick="downloadCleanCSV('lugares')">📥 Descargar CSV Consolidado</button>
+                            </div>
+                            <div class="table-container">
+                                <table class="data-table" id="table-lug-clean">
+                                    <thead>
+                                        <tr>
+                                            <th>Fila</th>
+                                            <th>Nombre Lugar</th>
+                                            <th>Georeferencia (Lat/Lon)</th>
+                                            <th>Dirección Física</th>
+                                            <th>Ubicación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Duplicados lugares -->
+                        <div id="tab-lug-duplicates" class="tab-pane">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">
+                                Registros omitidos debido a duplicación exacta de su Llave Primaria lógica (Nombre del Lugar + Dirección):
+                            </p>
+                            <div class="table-container">
+                                <table class="data-table" id="table-lug-duplicates">
+                                    <thead>
+                                        <tr>
+                                            <th>Fila</th>
+                                            <th>Nombre del Lugar Omitido</th>
+                                            <th>Dirección Física</th>
+                                            <th>Motivo de Exclusión</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Corruptos lugares -->
+                        <div id="tab-lug-corrupt" class="tab-pane">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">
+                                Registros omitidos por valores corruptos, latitudes/longitudes fuera de rango real o campos vacíos:
+                            </p>
+                            <div class="table-container">
+                                <table class="data-table" id="table-lug-corrupt">
+                                    <thead>
+                                        <tr>
+                                            <th>Línea</th>
+                                            <th>Cadena de Datos Original</th>
+                                            <th>Motivo de Rechazo Técnico</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- SQL lugares -->
+                        <div id="tab-lug-sql" class="tab-pane">
+                            <div class="explorer-controls">
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">Sentencias SQL relacionales generadas en caliente con las relaciones FK correspondientes:</p>
+                                <a href="/api/download/sql" class="btn btn-secondary btn-sm">📥 Descargar Script SQL Completo</a>
+                            </div>
+                            <pre class="code-preview" id="sql-lug-preview"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VISTA: EXPLORADOR DE BASE DE DATOS -->
+            <div id="view-db-explorer" class="tab-pane">
+                <div class="glass-card">
+                    <h3 class="card-title">🗄️ Navegador e Inspector de Tablas SQLite</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Consulta directamente el almacenamiento persistente en SQLite. El motor ETL actualiza estas tablas en caliente tras la ejecución exitosa de cada pipeline.
+                    </p>
+                    
+                    <div class="explorer-controls">
+                        <div class="table-selector">
+                            <button class="btn-pill active" onclick="loadTableData('Famosos', this)">👤 Famosos</button>
+                            <button class="btn-pill" onclick="loadTableData('Lugares', this)">🏢 Lugares</button>
+                            <button class="btn-pill" onclick="loadTableData('Georeferencias', this)">🌐 Georeferencias</button>
+                            <button class="btn-pill" onclick="loadTableData('Direcciones', this)">📮 Direcciones</button>
+                        </div>
+                        <button class="btn btn-secondary" onclick="refreshCurrentTable()">🔄 Refrescar Tabla</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table" id="table-db-browser">
+                            <thead id="thead-db-browser">
+                                <tr>
+                                    <th>Cargando columnas...</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-db-browser">
+                                <tr>
+                                    <td>Seleccione una tabla o inicie un ETL para ver los registros aquí.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VISTA: LOGS ETL -->
+            <div id="view-etl-logs" class="tab-pane">
+                <div class="glass-card animate-slide-up" style="border: 1px solid rgba(16, 185, 129, 0.25); background: rgba(4, 7, 17, 0.8);">
+                    <h3 class="card-title" style="display: flex; align-items: center; gap: 8px; color: #10b981; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="display:inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; animation: pulse 2s infinite;"></span>
+                            📋 Registro de Actividad Persistente (logs/etl.log)
+                        </div>
+                        <button class="btn btn-secondary btn-sm" onclick="loadETLLogs()">🔄 Recargar Logs</button>
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.9rem;">
+                        Historial de logs de auditoría en tiempo real guardados en el disco del servidor. Muestra los eventos de decodificación, codificación, delimitadores, duplicados fuzzy, y validación estricta de cotas geográficas.
+                    </p>
+                    <pre class="code-preview" id="etl-log-console" style="color: #34d399; background: #02040a; font-family: 'Courier New', Courier, monospace; height: 500px; overflow-y: auto; padding: 20px; border-radius: 8px; font-size: 0.85rem; line-height: 1.5; border: 1px solid rgba(16, 185, 129, 0.2);"></pre>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

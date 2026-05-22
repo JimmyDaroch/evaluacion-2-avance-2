@@ -1,0 +1,15 @@
+celebridad|nacido
+P#e@d;ro Pa/s\c*al|Nacido el 2 de abril de 1975
+  Pedro Pascal |1975-04-02
+PEDRO pascal|02-04-1975
+Keanu Reeves|September 2, 1964
+keanu  reeves|2 Sep 1964
+Penélope Cruz|28 de abril de 1974
+Penelope Cruz|28-04-1974
+Tom-Hanks|9 Jul 1956
+Tom_Hanks|1956-07-09
+Tom Hanks|09-07-1956
+Fila_Rota_Sin_Columnas
+Famoso Sin Fecha|
+Famoso Con Fecha Invalida|esto-no-es-una-fecha
+Scarlett Johansson|1984/11/22
